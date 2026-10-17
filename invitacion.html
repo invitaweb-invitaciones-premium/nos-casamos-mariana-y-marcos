@@ -6,7 +6,7 @@
 <title>Valentina &amp; Mateo · Nos casamos</title>
 <meta content="Valentina &amp; Mateo se casan 🌿" property="og:title"/>
 <meta content="Nos encantaría contar con tu presencia. Sábado 14 de Noviembre · Ceremonia 18:00 hs" property="og:description"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500&family=Pinyon+Script&family=Pinyon+Script&family=Great+Vibes&display=swap&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -65,8 +65,8 @@ h1,h2{font-weight:400;}
 .hero-portrait.no-photo{background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));display:flex;align-items:center;justify-content:center;}
 .hero-portrait.no-photo img{display:none;}
 .hero-portrait.no-photo::after{content:'🌿';font-size:40px;}
-.hero-names{font-family:'Pinyon Script',cursive;font-size:clamp(56px,15vw,96px);line-height:1.1;color:#1a1410;filter:drop-shadow(0 2px 3px rgba(0,0,0,.08));}
-.hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-strong);font-size:.7em;margin:0 10px;}
+.hero-names{font-family:'Great Vibes',cursive;font-size:clamp(56px,15vw,96px);line-height:1.1;color:#1a1410;filter:drop-shadow(0 2px 3px rgba(0,0,0,.08));}
+  .hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-strong);font-size:.7em;margin:0 10px;}
 .hero-amp{font-family:'Playfair Display',serif;font-style:italic;color:var(--terracota);-webkit-text-fill-color:var(--terracota);font-size:.5em;margin:0 8px;}
 .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,20px);letter-spacing:4px;color:var(--text2);text-transform:uppercase;margin-top:8px;}
 .music-btn-wrap{margin-top:34px;display:flex;justify-content:center;}
@@ -197,12 +197,11 @@ h1,h2{font-weight:400;}
 .compartir-card{max-width:460px;margin:0 auto;text-align:center;}
 .ig-link{display:inline-block;margin-top:16px;background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));color:#fff;padding:12px 26px;border-radius:30px;text-decoration:none;font-family:'Raleway',sans-serif;font-size:14px;letter-spacing:1px;}
 
-footer{background:var(--dark);color:var(--beige2);text-align:center;padding:50px 20px;}
-.ornament{font-size:20px;color:var(--gold-strong);letter-spacing:10px;}
-.footer-name{font-family:'Pinyon Script',cursive;font-size:42px;color:var(--cream);margin-top:10px;}
-.footer-sub{font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#bdb192;margin-top:6px;}
-.footer-dev{margin-top:26px;font-family:'Raleway',sans-serif;font-size:11px;color:#8c8168;}
-.footer-dev a{color:var(--gold);text-decoration:none;}
+footer{background:transparent;color:var(--text2);text-align:center;padding:50px 20px;}
+.footer-name{font-family:'Pinyon Script',cursive;font-size:42px;color:var(--wine);margin-top:10px;}
+.footer-sub{font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-strong);margin-top:6px;}
+.footer-dev{margin-top:26px;font-family:'Raleway',sans-serif;font-size:11px;color:var(--text3);}
+.footer-dev a{color:var(--gold-strong);text-decoration:none;}
 </style>
 </head>
 <body>
@@ -489,7 +488,7 @@ footer{background:var(--dark);color:var(--beige2);text-align:center;padding:50px
   const c=document.getElementById('petals');
   const formas=[{w:8,h:11,br:'50% 40% 55% 35%'},{w:6,h:6,br:'50%'},{w:7,h:2.5,br:'2px'}];
   const cols=['#c9a96e','#a8823f','#7a3140','#c17b5e','#8a9a7e','#5f6f54','#c98d94','#fdf8f4'];
-  for(let i=0;i<40;i++){
+  for(let i=0;i<14;i++){
     const p=document.createElement('div');p.className='petal';
     const f=formas[Math.floor(Math.random()*formas.length)];
     const s=.7+Math.random()*.9;
