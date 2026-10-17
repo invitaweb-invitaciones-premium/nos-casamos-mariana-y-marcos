@@ -205,8 +205,11 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 </style>
 </head>
 <body>
-<audio id="bg-audio" loop=""><source src="" type="audio/mpeg"/></audio>
 <div id="petals"></div>
+
+<audio id="bg-audio" loop="">
+<source src="https://www.dropbox.com/scl/fi/q90qwwvq9okdxvy3lz9fr/Diego-Torres-Manuel-Carrasco-Vas-a-Quedarte-Official-Video.mp3?rlkey=de2ttp9u7fd6fzejkbys4t0yk&st=vmihzqc3&dl=0" type="audio/mpeg"/>
+</audio>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
@@ -220,15 +223,15 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <div class="music-card">
 <p style="text-align:center;">🎵 La música de fondo<br/>es parte de la experiencia</p>
 <button class="btn-music" id="musicBtn" onclick="toggleMusic()">
-<span id="musicIcon">▶</span><span id="musicLabel">Ingresar con música</span>
+  <span id="musicIcon">▶</span><span id="musicLabel">Ingresar con música</span>
 </button>
 <div class="audio-playing" id="audioAnim">
-<div class="bar-anim" style="animation-delay:0s;"></div>
-<div class="bar-anim" style="animation-delay:.12s;"></div>
-<div class="bar-anim" style="animation-delay:.24s;"></div>
-<div class="bar-anim" style="animation-delay:.12s;"></div>
-<div class="bar-anim" style="animation-delay:0s;"></div>
-<span style="margin-left:8px;">Perfect · Ed Sheeran</span>
+  <div class="bar-anim" style="animation-delay:0s;"></div>
+  <div class="bar-anim" style="animation-delay:.12s;"></div>
+  <div class="bar-anim" style="animation-delay:.24s;"></div>
+  <div class="bar-anim" style="animation-delay:.12s;"></div>
+  <div class="bar-anim" style="animation-delay:0s;"></div>
+  <span style="margin-left:8px;">Vas a Quedarte · Diego Torres, Manuel Carrasco</span>
 </div>
 </div>
 </div>
@@ -518,12 +521,22 @@ function toggleMusic(){
   const icon=document.getElementById('musicIcon');
   const lbl=document.getElementById('musicLabel');
   const anim=document.getElementById('audioAnim');
+  const floatBtn=document.getElementById('music-float');
+  const pauseSvg=document.getElementById('float-pause-svg');
+  const playSvg=document.getElementById('float-play-svg');
   if(!playing){
     a.play().catch(()=>{});
-    icon.textContent='⏸'; lbl.textContent='Pausar música'; anim.classList.add('show'); playing=true;
+    icon.textContent='⏸'; lbl.textContent='Pausar música';
+    anim.classList.add('show');
+    floatBtn.style.display='flex';
+    pauseSvg.style.display='block'; playSvg.style.display='none';
+    playing=true;
   }else{
     a.pause();
-    icon.textContent='▶'; lbl.textContent='Reanudar música'; anim.classList.remove('show'); playing=false;
+    icon.textContent='▶'; lbl.textContent='Reanudar música';
+    anim.classList.remove('show');
+    pauseSvg.style.display='none'; playSvg.style.display='block';
+    playing=false;
   }
 }
 
@@ -728,5 +741,18 @@ function launchMusicNotes(){
   }
 }
 </script>
+<button id="music-float" onclick="toggleMusic()" title="Reproducir / Pausar música"
+  style="display:none;position:fixed;bottom:22px;right:22px;z-index:1000;
+  width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));
+  box-shadow:0 4px 20px rgba(201,169,110,0.4);
+  align-items:center;justify-content:center;padding:0;">
+  <svg id="float-pause-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" style="display:block;">
+    <rect x="5" y="4" width="4" height="16" rx="1.5"/><rect x="15" y="4" width="4" height="16" rx="1.5"/>
+  </svg>
+  <svg id="float-play-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" style="display:none;margin-left:3px;">
+    <polygon points="5,3 19,12 5,21"/>
+  </svg>
+</button>
 </body>
 </html>
