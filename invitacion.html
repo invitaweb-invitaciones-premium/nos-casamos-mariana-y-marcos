@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Valentina &amp; Mateo · Nos casamos</title>
 <meta content="Valentina &amp; Mateo se casan 🌿" property="og:title"/>
-<meta content="Nos encantaría contar con tu presencia. Sábado 14 de Noviembre · Ceremonia 18:00 hs" property="og:description"/>
+<meta content="Nos encantaría contar con tu presencia. Viernes 18 de Diciembre · Ceremonia 19:45 hs" property="og:description"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500&family=Pinyon+Script&family=Pinyon+Script&family=Great+Vibes&display=swap&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -66,7 +66,7 @@ h1,h2{font-weight:400;}
 .hero-portrait.no-photo img{display:none;}
 .hero-portrait.no-photo::after{content:'🌿';font-size:40px;}
 .hero-names{font-family:'Great Vibes',cursive;font-size:clamp(56px,15vw,96px);line-height:1.1;color:#1a1410;filter:drop-shadow(0 2px 3px rgba(0,0,0,.08));}
-  .hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-strong);font-size:.7em;margin:0 10px;}
+.hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-strong);font-size:.7em;margin:0 10px;}
 .hero-amp{font-family:'Playfair Display',serif;font-style:italic;color:var(--terracota);-webkit-text-fill-color:var(--terracota);font-size:.5em;margin:0 8px;}
 .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,20px);letter-spacing:4px;color:var(--text2);text-transform:uppercase;margin-top:8px;}
 .music-btn-wrap{margin-top:34px;display:flex;justify-content:center;}
@@ -133,7 +133,7 @@ h1,h2{font-weight:400;}
 .toggle-chip{border:2px solid var(--gold);border-radius:12px;padding:14px 18px;font-family:'Cormorant Garamond',serif;font-size:17px;cursor:pointer;transition:all .25s;background:rgba(253,248,244,.7);text-align:center;min-width:140px;}
 .toggle-chip.active{background:rgba(253,248,244,.95);box-shadow:0 4px 14px rgba(0,0,0,.12);font-weight:600;transform:translateY(-2px);}
 .toggle-chip:not(.active){opacity:.45;filter:grayscale(.4);}
-}
+
 .toggle-chip.active .chip-icon{filter:none;opacity:1;}
 .btn-remove-person{background:none;border:none;color:#b5737a;font-size:11px;cursor:pointer;font-family:'Raleway',sans-serif;}
 .btn-add-person{background:none;border:1px dashed var(--gold-strong);color:var(--gold-strong);padding:11px;border-radius:10px;font-family:'Raleway',sans-serif;font-size:13px;cursor:pointer;}
@@ -161,6 +161,7 @@ h1,h2{font-weight:400;}
 .slide-frame::before{top:2px;left:8px;} .slide-frame::after{bottom:2px;right:8px;transform:scale(-1);}
 .slide-photo{width:clamp(200px,60vw,260px);height:clamp(200px,60vw,260px);border-radius:16px;overflow:hidden;border:1px solid rgba(201,169,110,.3);}
 .slide-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.slide-photo-inner{width:100%;height:100%;}
 .slide-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:40px;}
 .slide-photo-placeholder span{font-size:11px;color:var(--gold-strong);letter-spacing:2px;font-style:italic;}
 .slide-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
@@ -204,34 +205,34 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 .footer-dev a{color:var(--gold-strong);text-decoration:none;}
 </style>
 </head>
-<body>
-<div id="petals"></div>
 
-<audio id="bg-audio" loop="">
-<source src="https://www.dropbox.com/scl/fi/q90qwwvq9okdxvy3lz9fr/Diego-Torres-Manuel-Carrasco-Vas-a-Quedarte-Official-Video.mp3?rlkey=de2ttp9u7fd6fzejkbys4t0yk&st=vmihzqc3&dl=0" type="audio/mpeg"/>
+<audio id="bg-audio" loop>
+  <source src="TU_LINK_DE_DROPBOX&raw=1" type="audio/mpeg"/>
 </audio>
+
+<body>
+<audio id="bg-audio" loop=""><source src="audio/me-haces-bien.mp3" type="audio/mpeg"/></audio>
+<div id="petals"></div>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
 <div id="hero-bg-photo"></div>
-<span class="hero-corner tl">❧</span>
-<span class="hero-corner tr">❧</span>
 <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,3.8vw,19px);color:var(--gold-strong);letter-spacing:3px;margin-bottom:14px;opacity:0;animation:fadeUp 1s .1s forwards;">Una noche que nunca olvidaremos</p>
 <h1 class="hero-names">Valentina <span class="hero-amp">&amp;</span> Mateo</h1>
-<p class="hero-sub">Sábado 14 de Noviembre · 2026</p>
+<p class="hero-sub">Viernes 18 de Diciembre · 2026</p>
 <div class="music-btn-wrap">
 <div class="music-card">
 <p style="text-align:center;">🎵 La música de fondo<br/>es parte de la experiencia</p>
 <button class="btn-music" id="musicBtn" onclick="toggleMusic()">
-  <span id="musicIcon">▶</span><span id="musicLabel">Ingresar con música</span>
+<span id="musicIcon">▶</span><span id="musicLabel">Ingresar con música</span>
 </button>
 <div class="audio-playing" id="audioAnim">
-  <div class="bar-anim" style="animation-delay:0s;"></div>
-  <div class="bar-anim" style="animation-delay:.12s;"></div>
-  <div class="bar-anim" style="animation-delay:.24s;"></div>
-  <div class="bar-anim" style="animation-delay:.12s;"></div>
-  <div class="bar-anim" style="animation-delay:0s;"></div>
-  <span style="margin-left:8px;">Vas a Quedarte · Diego Torres, Manuel Carrasco</span>
+<div class="bar-anim" style="animation-delay:0s;"></div>
+<div class="bar-anim" style="animation-delay:.12s;"></div>
+<div class="bar-anim" style="animation-delay:.24s;"></div>
+<div class="bar-anim" style="animation-delay:.12s;"></div>
+<div class="bar-anim" style="animation-delay:0s;"></div>
+<span style="margin-left:8px;">Me haces bien · Jorge Drexler</span>
 </div>
 </div>
 </div>
@@ -245,7 +246,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <div class="invite-card">
 <p class="invite-who">Junto a nuestras familias</p>
 <p class="invite-text">Tenemos el enorme placer de invitarte a acompañarnos en el día en que unimos nuestras vidas para siempre.<br/><br/>Tu presencia hará este momento aún más especial.</p>
-<div class="invite-date">Sábado 14 de Noviembre · 2026</div>
+<div class="invite-date">Viernes 18 de Diciembre · 2026</div>
 </div>
 </section>
 
@@ -270,52 +271,37 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <div class="gold-line"></div>
 <div class="timeline">
 <div class="tl-item">
-<p class="tl-year">2019</p>
+<p class="tl-year">Hace 14 años</p>
 <p class="tl-title">Cómo nos conocimos</p>
-<p class="tl-text">Nos cruzamos por primera vez en la casa de unos amigos en común. Ninguno de los dos imaginó que esa noche iba a cambiar todo.</p>
+<p class="tl-text">Nos conocimos trabajando, y gracias a un compañero nuestros caminos se unieron. Lo que comenzó como una linda historia se convirtió en 14 años de amor, sueños y una hermosa familia.</p>
 </div>
 <div class="tl-item">
-<p class="tl-year">2021</p>
-<p class="tl-title">La primera cita</p>
-<p class="tl-text">Un café que se hizo tarde, tarde que se hizo caminata, y una caminata que terminó en la primera de muchísimas noches juntos.</p>
+<p class="tl-year">Nuestra familia</p>
+<p class="tl-title">Los momentos más especiales</p>
+<p class="tl-text">Los momentos más importantes y especiales de nuestra historia han sido los nacimientos de nuestros tres hijos: Constanza, Clara y Vicente. Cada uno llegó para transformar nuestras vidas, multiplicar nuestro amor y regalarnos la hermosa familia que hoy somos.</p>
 </div>
 <div class="tl-item">
-<p class="tl-year">2025</p>
-<p class="tl-title">La propuesta</p>
-<p class="tl-text">Frente al atardecer, con el anillo temblando en el bolsillo, llegó la pregunta que ya los dos sabían la respuesta.</p>
+<p class="tl-year">18 de diciembre</p>
+<p class="tl-title">Nuestro aniversario</p>
+<p class="tl-text">Este 18 de diciembre, justo en nuestro aniversario, elegimos dar un paso más y celebrar nuestro amor rodeados de quienes queremos.</p>
 </div>
 </div>
 </section>
 
-<!-- ═══ CEREMONIA ═══ -->
+<!-- ═══ CEREMONIA Y CELEBRACIÓN (mismo lugar) ═══ -->
 <section class="section">
-<span class="sec-tag">la ceremonia</span>
-<h2 class="sec-title">Capilla Nuestra Señora del Carmen</h2>
+<span class="sec-tag">la ceremonia y la celebración</span>
+<h2 class="sec-title">La Casona de San Pedro</h2>
 <div class="gold-line"></div>
+<p class="sec-body">Ceremonia, recepción y festejo, todo en el mismo lugar.</p>
 <div class="lugar-info">
-<div class="lugar-detail"><span class="ld-icon">📅</span><span class="ld-label">Fecha</span><span class="ld-val" style="color:var(--sage-deep);">14 de Noviembre</span></div>
-<div class="lugar-detail"><span class="ld-icon">🕕</span><span class="ld-label">Hora</span><span class="ld-val" style="color:var(--sage-deep);">18:00 hs</span></div>
-<div class="lugar-detail"><span class="ld-icon">⛪</span><span class="ld-label">Lugar</span><span class="ld-val" style="color:var(--sage-deep);">Capilla del Carmen</span></div>
+<div class="lugar-detail"><span class="ld-icon">📅</span><span class="ld-label">Fecha</span><span class="ld-val" style="color:var(--sage-deep);">18 de Diciembre</span></div>
+<div class="lugar-detail"><span class="ld-icon">🥂</span><span class="ld-label">Recepción</span><span class="ld-val" style="color:var(--sage-deep);">19:15 hs</span></div>
+<div class="lugar-detail"><span class="ld-icon">💍</span><span class="ld-label">Ceremonia</span><span class="ld-val" style="color:var(--sage-deep);">19:45 hs</span></div>
 </div>
-<p style="text-align:center;margin-top:8px;font-family:'IM Fell English',serif;font-style:italic;font-size:16px;color:var(--text2);">Ruta 1, Km 45 · Colonia</p>
+<p style="text-align:center;margin-top:8px;font-family:'IM Fell English',serif;font-style:italic;font-size:16px;color:var(--text2);">Los invitados deben llegar a las 19:15 hs</p>
 <div class="map-embed-wrap">
-<iframe allowfullscreen="" height="260" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Ruta+1+Km+45+Colonia&output=embed" style="border:0;" width="100%"></iframe>
-</div>
-</section>
-
-<!-- ═══ RECEPCIÓN ═══ -->
-<section class="section">
-<span class="sec-tag">la celebración</span>
-<h2 class="sec-title">Estancia La Aurora</h2>
-<div class="gold-line"></div>
-<div class="lugar-info">
-<div class="lugar-detail" style="background:rgba(255,255,255,.4);"><span class="ld-icon">🥂</span><span class="ld-label" style="color:var(--text3);">Recepción</span><span class="ld-val" style="color:var(--sage-deep);">20:00 hs</span></div>
-<div class="lugar-detail" style="background:rgba(255,255,255,.4);"><span class="ld-icon">🍽️</span><span class="ld-label" style="color:var(--text3);">Cena</span><span class="ld-val" style="color:var(--sage-deep);">21:30 hs</span></div>
-<div class="lugar-detail" style="background:rgba(255,255,255,.4);"><span class="ld-icon">💃</span><span class="ld-label" style="color:var(--text3);">Celebración</span><span class="ld-val" style="color:var(--sage-deep);">A partir de las 22:00</span></div>
-</div>
-<p style="text-align:center;margin-top:8px;font-family:'IM Fell English',serif;font-style:italic;font-size:16px;color:var(--text2);">Camino de los Robles s/n · Colonia</p>
-<div class="map-embed-wrap">
-<iframe allowfullscreen="" height="260" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Estancia+La+Aurora+Colonia&output=embed" style="border:0;" width="100%"></iframe>
+<iframe allowfullscreen="" height="260" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=La+Casona+de+San+Pedro&output=embed" style="border:0;" width="100%"></iframe>
 </div>
 </section>
 
@@ -324,16 +310,17 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <span class="sec-tag">confirmación</span>
 <h2 class="sec-title">Nos encantaría<br/>contar con tu presencia</h2>
 <div class="gold-line"></div>
-<p class="sec-body">Confirmá tu asistencia antes del <strong style="color:var(--sage-deep)">1 de Noviembre</strong></p>
+<p class="sec-body">Confirmá tu asistencia antes del <strong style="color:var(--sage-deep)">18 de Noviembre</strong></p>
 <div id="rsvp-wrap">
 <div id="rsvp-forms-container">
 <div class="rsvp-form rsvp-person-form" id="rsvp-form-0">
 <p class="rsvp-person-label">Persona 1</p>
 <div><label class="field-label">Nombre completo</label><input class="rsvp-input rsvp-name-input" placeholder="Ingresá tu nombre completo" type="text"/></div>
+<div><label class="field-label">Restricción alimentaria (opcional)</label><input class="rsvp-input rsvp-dato-input" placeholder="Ej: soy celíaco/a, vegetariano/a, alergia a..." type="text"/></div>
 <p style="font-family:'Raleway',sans-serif;font-size:12px;color:var(--text3);margin-bottom:8px;letter-spacing:1px;">Seleccioná a qué eventos vas a asistir:</p>
 <div class="asistencia-check" style="display:flex;gap:10px;align-items:stretch;margin:10px 0;">
-<button class="toggle-chip active" data-tipo="ceremonia" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--wine);border-radius:12px;background:rgba(122,49,64,.07);color:var(--wine);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">⛪</span><span style="font-weight:600;">Ceremonia</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">18:00 hs</span></button>
-<button class="toggle-chip active" data-tipo="fiesta" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--sage-deep);border-radius:12px;background:rgba(95,111,84,.07);color:var(--sage-deep);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">🥂</span><span style="font-weight:600;">Celebración</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">22:00 hs</span></button>
+<button class="toggle-chip active" data-tipo="ceremonia" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--wine);border-radius:12px;background:rgba(122,49,64,.07);color:var(--wine);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">💍</span><span style="font-weight:600;">Ceremonia</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">19:45 hs</span></button>
+<button class="toggle-chip active" data-tipo="fiesta" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--sage-deep);border-radius:12px;background:rgba(95,111,84,.07);color:var(--sage-deep);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">🥂</span><span style="font-weight:600;">Celebración</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">Tras la ceremonia</span></button>
 </div>
 </div>
 <div style="max-width:420px;margin:12px auto 0;display:flex;gap:10px;flex-direction:column;">
@@ -413,12 +400,11 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 </section>
 
 <!-- ═══ DRESS CODE ═══ -->
-<!-- ═══ DRESS CODE ═══ -->
 <section class="section">
 <span class="sec-tag">vestimenta</span>
 <h2 class="sec-title">Código de vestimenta</h2>
 <div class="gold-line"></div>
-<p class="sec-body">La dress code es <strong style="color:var(--gold-strong)">Formal / Etiqueta</strong>. Acompañanos con tu mejor versión 💫</p>
+<p class="sec-body">La dress code es <strong style="color:var(--gold-strong)">Formal</strong>. Acompañanos con tu mejor versión, ¡sentite cómodo! 💫</p>
 <div style="max-width:420px;margin:24px auto 0;background:rgba(253,248,244,0.92);border:1.5px solid rgba(122,49,64,.3);border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(122,49,64,.1);">
   <p style="font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--wine);margin-bottom:16px;font-weight:600;">⚠ Por favor evitá estos colores</p>
   <div style="display:flex;justify-content:center;gap:32px;margin-bottom:18px;">
@@ -427,8 +413,13 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
       <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text);">Blanco</span><br/>
       <span style="font-family:'Raleway',sans-serif;font-size:11px;color:var(--wine);">reservado para la novia</span>
     </div>
+    <div style="text-align:center;">
+      <div style="width:58px;height:58px;border-radius:50%;background:#e8dcc4;border:2px solid #ccc;margin:0 auto 8px;box-shadow:0 3px 12px rgba(0,0,0,.12);"></div>
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text);">Beige</span><br/>
+      <span style="font-family:'Raleway',sans-serif;font-size:11px;color:var(--wine);">reservado para el novio</span>
+    </div>
   </div>
-  <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:17px;color:var(--text2);line-height:1.6;">El blanco es exclusivo de la novia.<br/>¡Gracias por entender! 🤍</p>
+  <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:17px;color:var(--text2);line-height:1.6;">El blanco y el beige están reservados para los novios.<br/>¡Gracias por entender! 🤍</p>
 </div>
 </section>
 
@@ -454,14 +445,14 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <!-- ═══ REGALOS ═══ -->
 <section class="section">
 <span class="sec-tag">regalos</span>
-<h2 class="sec-title">Si querés hacernos<br/>un regalo</h2>
+<h2 class="sec-title">Compartir este día con ustedes<br/>es nuestro mejor regalo</h2>
 <div class="gold-line"></div>
-<p class="sec-body">Tu presencia ya es el mejor regalo. Pero si querés ayudarnos a empezar esta nueva vida… 🎁</p>
+<p class="sec-body">Después de tantos años de historia compartida, nos emociona profundamente poder celebrar nuestro amor junto a las personas que más queremos. Su presencia, su cariño y la alegría de acompañarnos en este momento tan especial significan muchísimo para nosotros.</p>
+<p class="sec-body" style="margin-top:16px;">Si además desean tener un detalle con nosotros, les dejamos nuestros datos con mucho cariño y agradecimiento. 🎁</p>
 <div class="cuenta-card" style="margin-top:26px;">
-<div class="cuenta-row"><span class="cuenta-key">Banco</span><span class="cuenta-val">Banco República</span></div>
-<div class="cuenta-row"><span class="cuenta-key">Titular</span><span class="cuenta-val">Valentina Fernández</span></div>
-<div class="cuenta-row"><span class="cuenta-key">Cuenta</span><span class="cuenta-val">···· ···· ···· ····</span></div>
-<div class="cuenta-row"><span class="cuenta-key">Alias</span><span class="cuenta-val">VALEN.MATEO</span></div>
+<div class="cuenta-row"><span class="cuenta-key">Banco</span><span class="cuenta-val">BROU</span></div>
+<div class="cuenta-row"><span class="cuenta-key">Cuenta</span><span class="cuenta-val">001211354-00004</span></div>
+<div class="cuenta-row"><span class="cuenta-key">Titular</span><span class="cuenta-val">Mariana Salvo Loitey</span></div>
 </div>
 </section>
 
@@ -481,7 +472,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <footer>
 <p class="footer-name" style="font-size:36px;">Valentina &amp; Mateo</p>
 <div class="gold-line"></div>
-<p class="footer-sub">Nos Casamos · 14 de Noviembre</p>
+<p class="footer-sub">Nos Casamos · 18 de Diciembre</p>
 <p class="footer-dev">Desarrollado con amor por <a href="https://www.instagram.com/invitaweb.uy/" target="_blank">InvitaWeb</a></p>
 </footer>
 
@@ -498,7 +489,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
     p.style.cssText=[
       'left:'+(Math.random()*100)+'vw','width:'+(f.w*s)+'px','height:'+(f.h*s)+'px',
       'background:'+cols[Math.floor(Math.random()*cols.length)],'border-radius:'+f.br,
-      'animation-duration:'+(5+Math.random()*8)+'s','animation-delay:'+(-Math.random()*10)+'s'
+      'animation-duration:'+(8+Math.random()*10)+'s','animation-delay:'+(-Math.random()*14)+'s'
     ].join(';');
     c.appendChild(p);
   }
@@ -542,7 +533,7 @@ function toggleMusic(){
 
 /* COUNTDOWN */
 (function(){
-  const target=new Date('2026-11-14T18:00:00');
+  const target=new Date('2026-12-18T19:45:00');
   const grid=document.getElementById('countdownGrid');
   const arrived=document.getElementById('event-arrived');
   const title=document.getElementById('countdownTitle');
@@ -596,8 +587,8 @@ function addRSVPPerson(){
   div.innerHTML=`
     <p class="rsvp-person-label">Persona ${idx+1} <button onclick="removeRSVPPerson(${idx})" class="btn-remove-person">✕ quitar</button></p>
     <div><label class="field-label">Nombre completo</label><input class="rsvp-input rsvp-name-input" placeholder="Nombre completo" type="text"/></div>
-    <div class="asistencia-check" style="display:flex;gap:10px;align-items:stretch;margin:10px 0;"><button class="toggle-chip active" data-tipo="ceremonia" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--wine);border-radius:12px;background:rgba(122,49,64,.07);color:var(--wine);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">⛪</span><span style="font-weight:600;">Ceremonia</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">18:00 hs</span></button><button class="toggle-chip active" data-tipo="fiesta" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--sage-deep);border-radius:12px;background:rgba(95,111,84,.07);color:var(--sage-deep);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">🥂</span><span style="font-weight:600;">Celebración</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">22:00 hs</span></button></div>
-    <div><label class="field-label">Dato importante (opcional)</label><input class="rsvp-input rsvp-dato-input" placeholder="Ej: soy vegetariano/a, tengo alergia..." type="text"/></div>
+    <div class="asistencia-check" style="display:flex;gap:10px;align-items:stretch;margin:10px 0;"><button class="toggle-chip active" data-tipo="ceremonia" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--wine);border-radius:12px;background:rgba(122,49,64,.07);color:var(--wine);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">💍</span><span style="font-weight:600;">Ceremonia</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">19:45 hs</span></button><button class="toggle-chip active" data-tipo="fiesta" onclick="toggleChip(this)" type="button" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 10px;border:2px solid var(--sage-deep);border-radius:12px;background:rgba(95,111,84,.07);color:var(--sage-deep);font-family:'Cormorant Garamond',serif;font-size:16px;cursor:pointer;transition:all .25s;line-height:1.3;"><span style="font-size:22px;">🥂</span><span style="font-weight:600;">Celebración</span><span style="font-family:'Raleway',sans-serif;font-size:10px;opacity:.7;letter-spacing:1px;">Tras la ceremonia</span></button></div>
+    <div><label class="field-label">Restricción alimentaria (opcional)</label><input class="rsvp-input rsvp-dato-input" placeholder="Ej: soy celíaco/a, vegetariano/a, alergia a..." type="text"/></div>
   `;
   container.appendChild(div); rsvpPersonCount++;
 }
@@ -647,7 +638,7 @@ const localMessages=[];
     if(!WALL_URL) return;
     const res=await fetch(WALL_URL); const data=await res.json();
     if(Array.isArray(data)){
-      data.forEach(row=>{ if(row.nombre&&row.mensaje) localMessages.push({author:row.nombre,text:row.mensaje,time:new Date(row.timestamp||Date.now())}); });
+      data.forEach(row=>{ const ok=String(row.aprobado||'').trim().toLowerCase(); if(row.nombre&&row.mensaje&&(ok==='si'||ok==='sí'||ok==='true'||ok==='1')) localMessages.push({author:row.nombre,text:row.mensaje,time:new Date(row.timestamp||Date.now())}); });
       renderMessages();
     }
   }catch(e){}
@@ -657,7 +648,7 @@ async function submitMessage(){
   const text=document.getElementById('msg-text').value.trim();
   if(!author||!text){alert('Por favor completá tu nombre y mensaje.');return;}
   await sendToSheet(WALL_URL,{nombre:author,mensaje:text,timestamp:new Date().toLocaleString('es-UY'),token:TOKEN},'msg-btn','msg-loading');
-  localMessages.push({author,text,time:new Date()});
+  alert('¡Gracias! 💌 Tu mensaje se va a publicar cuando los novios lo aprueben.');
   document.getElementById('msg-author').value=''; document.getElementById('msg-text').value='';
   document.getElementById('msg-btn').disabled=false;
   renderMessages();
@@ -694,7 +685,7 @@ function addExtraPerson(){
     <p class="rsvp-person-label">Persona extra ${idx+1} <button onclick="document.getElementById('rsvp-extra-${idx}').remove()" class="btn-remove-person">✕ quitar</button></p>
     <div><label class="field-label">Nombre completo</label><input class="rsvp-input rsvp-name-input" placeholder="Nombre completo" type="text"/></div>
     <div class="asistencia-check"><button class="toggle-chip active" data-tipo="ceremonia" onclick="toggleChip(this)" type="button"><span class="chip-icon">⛪</span> Ceremonia</button><button class="toggle-chip active" data-tipo="fiesta" onclick="toggleChip(this)" type="button"><span class="chip-icon">🥂</span> Fiesta</button></div>
-    <div><label class="field-label">Dato importante (opcional)</label><input class="rsvp-input rsvp-dato-input" placeholder="Ej: soy vegetariano/a..." type="text"/></div>
+    <div><label class="field-label">Restricción alimentaria (opcional)</label><input class="rsvp-input rsvp-dato-input" placeholder="Ej: soy vegetariano/a..." type="text"/></div>
   `;
   container.appendChild(div);
 }
@@ -741,6 +732,7 @@ function launchMusicNotes(){
   }
 }
 </script>
+
 <button id="music-float" onclick="toggleMusic()" title="Reproducir / Pausar música"
   style="display:none;position:fixed;bottom:22px;right:22px;z-index:1000;
   width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
@@ -754,5 +746,6 @@ function launchMusicNotes(){
     <polygon points="5,3 19,12 5,21"/>
   </svg>
 </button>
+
 </body>
 </html>
