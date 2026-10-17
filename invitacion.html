@@ -6,7 +6,7 @@
 <title>Valentina &amp; Mateo · Nos casamos</title>
 <meta content="Valentina &amp; Mateo se casan 🌿" property="og:title"/>
 <meta content="Nos encantaría contar con tu presencia. Viernes 18 de Diciembre · Ceremonia 19:45 hs" property="og:description"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@300;400;500&family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -65,7 +65,7 @@ h1,h2{font-weight:400;}
 .hero-portrait.no-photo{background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));display:flex;align-items:center;justify-content:center;}
 .hero-portrait.no-photo img{display:none;}
 .hero-portrait.no-photo::after{content:'🌿';font-size:40px;}
-.hero-names{font-family:'Pinyon Script',cursive;font-size:clamp(56px,15vw,96px);line-height:1.1;color:#1a1410;filter:drop-shadow(0 2px 3px rgba(0,0,0,.08));}
+.hero-names{font-family:'Great Vibes',cursive;font-size:clamp(56px,15vw,96px);line-height:1.1;color:#1a1410;filter:drop-shadow(0 2px 3px rgba(0,0,0,.08));}
 .hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-strong);font-size:.7em;margin:0 10px;}
 .hero-amp{font-family:'Playfair Display',serif;font-style:italic;color:var(--terracota);-webkit-text-fill-color:var(--terracota);font-size:.5em;margin:0 8px;}
 .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,20px);letter-spacing:4px;color:var(--text2);text-transform:uppercase;margin-top:8px;}
@@ -211,8 +211,10 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
 <div id="hero-bg-photo"></div>
+<span class="hero-corner tl">❧</span>
+<span class="hero-corner tr">❧</span>
 <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,3.8vw,19px);color:var(--gold-strong);letter-spacing:3px;margin-bottom:14px;opacity:0;animation:fadeUp 1s .1s forwards;">Una noche que nunca olvidaremos</p>
-<h1 class="hero-names">Valentina <span class="hero-amp">&amp;</span> Mateo</h1>
+<h1 class="hero-names">Valentina<span class="hero-amp">&amp;</span>Mateo</h1>
 <p class="hero-sub">Viernes 18 de Diciembre · 2026</p>
 <div class="music-btn-wrap">
 <div class="music-card">
@@ -484,7 +486,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
     p.style.cssText=[
       'left:'+(Math.random()*100)+'vw','width:'+(f.w*s)+'px','height:'+(f.h*s)+'px',
       'background:'+cols[Math.floor(Math.random()*cols.length)],'border-radius:'+f.br,
-      'animation-duration:'+(5+Math.random()*8)+'s','animation-delay:'+(-Math.random()*10)+'s'
+      'animation-duration:'+(8+Math.random()*10)+'s','animation-delay:'+(-Math.random()*14)+'s'
     ].join(';');
     c.appendChild(p);
   }
@@ -507,12 +509,21 @@ function toggleMusic(){
   const icon=document.getElementById('musicIcon');
   const lbl=document.getElementById('musicLabel');
   const anim=document.getElementById('audioAnim');
+  const floatBtn=document.getElementById('music-float');
+  const pauseSvg=document.getElementById('float-pause-svg');
+  const playSvg=document.getElementById('float-play-svg');
   if(!playing){
     a.play().catch(()=>{});
-    icon.textContent='⏸'; lbl.textContent='Pausar música'; anim.classList.add('show'); playing=true;
+    icon.textContent='⏸'; lbl.textContent='Pausar música';
+    anim.classList.add('show');
+    floatBtn.style.display='flex'; pauseSvg.style.display='block'; playSvg.style.display='none';
+    playing=true;
   }else{
     a.pause();
-    icon.textContent='▶'; lbl.textContent='Reanudar música'; anim.classList.remove('show'); playing=false;
+    icon.textContent='▶'; lbl.textContent='Reanudar música';
+    anim.classList.remove('show');
+    pauseSvg.style.display='none'; playSvg.style.display='block';
+    playing=false;
   }
 }
 
@@ -717,5 +728,10 @@ function launchMusicNotes(){
   }
 }
 </script>
+<button id="music-float" onclick="toggleMusic()" title="Reproducir / Pausar música"
+  style="display:none;position:fixed;bottom:22px;right:22px;z-index:1000;width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));box-shadow:0 4px 20px rgba(201,169,110,0.4);align-items:center;justify-content:center;padding:0;">
+  <svg id="float-pause-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" style="display:block;"><rect x="5" y="4" width="4" height="16" rx="1.5"/><rect x="15" y="4" width="4" height="16" rx="1.5"/></svg>
+  <svg id="float-play-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" style="display:none;margin-left:3px;"><polygon points="5,3 19,12 5,21"/></svg>
+</button>
 </body>
 </html>
