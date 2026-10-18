@@ -140,6 +140,9 @@ h1,h2{font-weight:400;}
 .btn-gold{background:linear-gradient(135deg,var(--gold-strong),var(--sage-deep));color:#fff;border:none;padding:14px;border-radius:10px;font-family:'Raleway',sans-serif;font-size:15px;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 20px rgba(95,111,84,.25);}
 .sheet-loading{display:none;text-align:center;font-family:'Raleway',sans-serif;font-size:12px;color:var(--text3);margin-top:6px;}
 .sheet-loading.show{display:block;}
+.progress-wrap{display:none;width:100%;max-width:420px;margin:10px auto 0;height:8px;border-radius:50px;overflow:hidden;background:rgba(122,49,64,.12);border:1px solid rgba(122,49,64,.15);}
+.progress-wrap.show{display:block;}
+.progress-bar{height:100%;width:0%;border-radius:50px;background:linear-gradient(90deg,var(--gold),var(--wine));transition:width .15s linear;}
 .success-box{display:none;max-width:420px;margin:0 auto;text-align:center;}
 .song-success-content{background:var(--card-bg);border:1px solid var(--card-border);border-radius:18px;padding:34px 24px;position:relative;z-index:2;}
 .vinyl-spin{font-size:44px;animation:spin 4s linear infinite;}
@@ -326,6 +329,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <div style="max-width:420px;margin:12px auto 0;display:flex;gap:10px;flex-direction:column;">
 <button class="btn-add-person" id="btn-add-person" onclick="addRSVPPerson()">✦ Agregar otra persona</button>
 <button class="btn-gold" id="rsvp-btn" onclick="submitRSVP()">Confirmar asistencia ✨</button>
+<div class="progress-wrap" id="rsvp-progress-wrap"><div class="progress-bar" id="rsvp-progress-bar"></div></div>
 <p class="sheet-loading" id="rsvp-loading">Enviando...</p>
 </div>
 </div>
@@ -605,13 +609,37 @@ async function submitRSVP(){
     else personas.push({name,dato,ceremonia,fiesta});
   });
   if(!allValid){alert('Por favor ingresá el nombre de todas las personas.');return;}
-  const btn=document.getElementById('rsvp-btn'); const loading=document.getElementById('rsvp-loading');
-  btn.disabled=true; loading.classList.add('show');
-  for(const p of personas){
+
+  const btn=document.getElementById('rsvp-btn');
+  const loading=document.getElementById('rsvp-loading');
+  const progressWrap=document.getElementById('rsvp-progress-wrap');
+  const progressBar=document.getElementById('rsvp-progress-bar');
+  btn.disabled=true; loading.classList.add('show'); progressWrap.classList.add('show');
+
+  let currentPct=0;
+  progressBar.style.width='0%';
+  const total=personas.length;
+
+  for(let i=0;i<total;i++){
+    const p=personas[i];
     const asiste=(p.ceremonia&&p.fiesta)?'Ceremonia y fiesta':p.ceremonia?'Solo ceremonia':p.fiesta?'Solo fiesta':'No asiste';
+    const segEnd=((i+0.92)/total)*100;
+
+    const ticker=setInterval(()=>{
+      currentPct += (segEnd-currentPct)*0.15;
+      if(currentPct>segEnd) currentPct=segEnd;
+      progressBar.style.width=currentPct+'%';
+    },80);
+
     if(RSVP_URL) await fetch(RSVP_URL,{method:'POST',body:JSON.stringify({nombre:p.name,extra:p.dato,asiste,timestamp:new Date().toLocaleString('es-UY'),token:TOKEN})}).catch(()=>{});
+
+    clearInterval(ticker);
+    currentPct=((i+1)/total)*100;
+    progressBar.style.width=currentPct+'%';
   }
+
   loading.classList.remove('show');
+  setTimeout(()=>{progressWrap.classList.remove('show');},450);
   document.getElementById('rsvp-wrap').style.display='none';
   document.getElementById('rsvp-success').style.display='block';
   const nombres=personas.map(p=>p.name).join(', ');
