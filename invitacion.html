@@ -31,14 +31,7 @@ body{
 ::-webkit-scrollbar-track{background:var(--beige);}
 ::-webkit-scrollbar-thumb{background:var(--gold-strong);border-radius:2px;}
 
-/* CONFETI / PÉTALOS — paleta variada dorado, vino, terracota, salvia */
-#petals{position:fixed;inset:0;pointer-events:none;z-index:5;}
-.petal{position:absolute;top:-20px;animation:petalFall linear infinite;opacity:0;box-shadow:0 0 6px 1px rgba(255,255,255,.55);}
-@keyframes petalFall{
-  0%{transform:translateY(0) rotate(0deg) translateX(0);opacity:.65;}
-  50%{transform:translateY(50vh) rotate(210deg) translateX(16px);opacity:.42;}
-  100%{transform:translateY(108vh) rotate(390deg) translateX(-12px);opacity:0;}
-}
+
 
 h1,h2{font-weight:400;}
 .gold-line{width:70px;height:1px;margin:14px auto 22px;background:linear-gradient(90deg,transparent,var(--gold-strong),transparent);}
@@ -217,7 +210,6 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 
 <body>
 <audio id="bg-audio" loop=""><source src="audio/me-haces-bien.mp3" type="audio/mpeg"/></audio>
-<div id="petals"></div>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
@@ -249,7 +241,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <h2 class="sec-title">Mariana &amp; Marcos</h2>
   <div class="gold-line"></div>
 <div class="invite-card">
-<p class="invite-who">Junto a nuestras familias</p>
+<p class="invite-who">Junto a nuestra familia</p>
 <p class="invite-text">Tenemos el enorme placer de invitarte a acompañarnos en el día en que unimos nuestras vidas para siempre.<br/><br/>Tu presencia hará este momento aún más especial.</p>
 <div class="invite-date">Viernes 18 de Diciembre · 2026</div>
 </div>
@@ -459,7 +451,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 <div class="cuenta-card" style="margin-top:26px;">
 <div class="cuenta-row"><span class="cuenta-key">Banco</span><span class="cuenta-val">BROU</span></div>
 <div class="cuenta-row"><span class="cuenta-key">Cuenta</span><span class="cuenta-val">001211354-00004</span></div>
-<div class="cuenta-row"><span class="cuenta-key">Titular</span><span class="cuenta-val">Mariana Salvo Loitey</span></div>
+<div class="cuenta-row"><span class="cuenta-key">Titular</span><span class="cuenta-val">Casamiento Marcos & Mariana</span></div>
 </div>
 </section>
 
@@ -484,23 +476,7 @@ footer{background:transparent;color:var(--text2);text-align:center;padding:50px 
 </footer>
 
 <script>
-/* CONFETI / PÉTALOS */
-(function(){
-  const c=document.getElementById('petals');
-  const formas=[{w:8,h:11,br:'50% 40% 55% 35%'},{w:6,h:6,br:'50%'},{w:7,h:2.5,br:'2px'}];
-  const cols=['#c9a96e','#a8823f','#7a3140','#c17b5e','#8a9a7e','#5f6f54','#c98d94','#fdf8f4'];
-  for(let i=0;i<14;i++){
-    const p=document.createElement('div');p.className='petal';
-    const f=formas[Math.floor(Math.random()*formas.length)];
-    const s=.7+Math.random()*.9;
-    p.style.cssText=[
-      'left:'+(Math.random()*100)+'vw','width:'+(f.w*s)+'px','height:'+(f.h*s)+'px',
-      'background:'+cols[Math.floor(Math.random()*cols.length)],'border-radius:'+f.br,
-      'animation-duration:'+(8+Math.random()*10)+'s','animation-delay:'+(-Math.random()*14)+'s'
-    ].join(';');
-    c.appendChild(p);
-  }
-})();
+
 
 /* Reemplazar estos por tus URLs reales de Apps Script cuando tengas los datos definitivos */
 const RSVP_URL='https://script.google.com/macros/s/AKfycbz8oNGlZVJxashbQwIx3lg0FgFtijxqwI3Ovy7Rm5KDkqXOceZipwZaEYtupzRdwYMD6Q/exec';
