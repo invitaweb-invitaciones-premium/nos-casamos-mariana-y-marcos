@@ -582,7 +582,15 @@ async function sendToSheet(url,data,btnId,loadingId){
   loading.classList.remove('show');
 }
 
-function toggleChip(btn){ btn.classList.toggle('active'); }
+function toggleChip(btn){
+  const grupo=btn.parentElement.querySelectorAll('.toggle-chip');
+  const activos=[...grupo].filter(c=>c.classList.contains('active')).length;
+  if(btn.classList.contains('active') && activos===1){
+    alert('Tenés que elegir al menos una opción: ceremonia o celebración.');
+    return;
+  }
+  btn.classList.toggle('active');
+}
 
 /* RSVP */
 let rsvpPersonCount=1;
@@ -601,16 +609,20 @@ function addRSVPPerson(){
 }
 function removeRSVPPerson(idx){ const el=document.getElementById('rsvp-form-'+idx); if(el) el.remove(); }
 async function submitRSVP(){
+  async function submitRSVP(){
   const forms=document.querySelectorAll('.rsvp-person-form');
-  const personas=[]; let allValid=true;
+  const personas=[]; let allValid=true, sinEvento=false;
   forms.forEach(form=>{
     const name=form.querySelector('.rsvp-name-input').value.trim();
     const dato=form.querySelector('.rsvp-dato-input').value.trim();
     const ceremonia=form.querySelector('.toggle-chip[data-tipo="ceremonia"]')?.classList.contains('active') ?? true;
     const fiesta=form.querySelector('.toggle-chip[data-tipo="fiesta"]')?.classList.contains('active') ?? true;
     if(!name){allValid=false; form.querySelector('.rsvp-name-input').focus();}
+    else if(!ceremonia&&!fiesta){sinEvento=true;}
     else personas.push({name,dato,ceremonia,fiesta});
   });
+  if(!allValid){alert('Por favor ingresá el nombre de todas las personas.');return;}
+  if(sinEvento){alert('Elegí al menos un evento (ceremonia o celebración) para cada persona.');return;}
   if(!allValid){alert('Por favor ingresá el nombre de todas las personas.');return;}
 
   const btn=document.getElementById('rsvp-btn');
@@ -723,16 +735,25 @@ function addExtraPerson(){
 }
 async function submitExtra(){
   const forms=document.querySelectorAll('#rsvp-extra-container .rsvp-person-form');
-  const personas=[]; let allValid=true;
+  const personas=[]; let allValid=true, sinEvento=false;
   forms.forEach(form=>{
     const name=form.querySelector('.rsvp-name-input').value.trim();
     const dato=form.querySelector('.rsvp-dato-input').value.trim();
-    if(!name){allValid=false;}else{personas.push({name,dato});}
+    const ceremonia=form.querySelector('.toggle-chip[data-tipo="ceremonia"]')?.classList.contains('active') ?? true;
+    const fiesta=form.querySelector('.toggle-chip[data-tipo="fiesta"]')?.classList.contains('active') ?? true;
+    if(!name){allValid=false;}
+    else if(!ceremonia&&!fiesta){sinEvento=true;}
+    else personas.push({name,dato,ceremonia,fiesta});
   });
   if(!allValid){alert('Por favor ingresá el nombre.');return;}
+  if(sinEvento){alert('Elegí al menos un evento (ceremonia o celebración) para cada persona.');return;}
+  if(!personas.length){return;}
   const btn=document.getElementById('rsvp-extra-btn'); const loading=document.getElementById('rsvp-extra-loading');
   btn.disabled=true; loading.classList.add('show');
-  for(const p of personas){ if(RSVP_URL) await fetch(RSVP_URL,{method:'POST',body:JSON.stringify({nombre:p.name,extra:p.dato,timestamp:new Date().toLocaleString('es-UY'),token:TOKEN})}).catch(()=>{}); }
+  for(const p of personas){
+    const asiste=(p.ceremonia&&p.fiesta)?'Ceremonia y fiesta':p.ceremonia?'Solo ceremonia':'Solo fiesta';
+    if(RSVP_URL) await fetch(RSVP_URL,{method:'POST',body:JSON.stringify({nombre:p.name,extra:p.dato,asiste,timestamp:new Date().toLocaleString('es-UY'),token:TOKEN})}).catch(()=>{});
+  }
   loading.classList.remove('show');
   document.getElementById('rsvp-add-more').style.display='none';
   const nombres=personas.map(p=>p.name).join(', ');
