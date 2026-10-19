@@ -608,7 +608,6 @@ function addRSVPPerson(){
   container.appendChild(div); rsvpPersonCount++;
 }
 function removeRSVPPerson(idx){ const el=document.getElementById('rsvp-form-'+idx); if(el) el.remove(); }
-async function submitRSVP(){
   async function submitRSVP(){
   const forms=document.querySelectorAll('.rsvp-person-form');
   const personas=[]; let allValid=true, sinEvento=false;
