@@ -12,6 +12,7 @@
   --cream:#fdf8f2;
   --text:#3a2a1e; --text2:#6b4e3d; --text3:#9a7a68;
   --card-bg:rgba(253,248,242,0.9); --bordo:#5c1a1f;
+  --wine:#7a3140; --sage-deep:#5f6f54;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{
@@ -41,10 +42,21 @@ body{
 .muro-wrapper.active{display:block;}
 
 .pagina-indicador{text-align:center;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:16px;}
-.total-count{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--text2);margin-bottom:18px;}
+.total-count{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--text2);margin-bottom:18px;line-height:1.6;}
 .total-count strong{color:var(--gold-deep);font-style:normal;}
+.total-sub{font-family:'Raleway',sans-serif;font-style:normal;font-size:13px;letter-spacing:1px;color:var(--text2);}
 
-#muro{display:flex;flex-direction:column;gap:14px;}
+/* FILTROS */
+.filtros{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.filtro-btn{
+  padding:9px 16px;border-radius:50px;border:1.5px solid rgba(169,120,36,.4);
+  background:rgba(253,248,242,.7);color:var(--gold-deep);cursor:pointer;
+  font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;transition:all .2s;
+}
+.filtro-btn.active{background:var(--gold-deep);color:var(--cream);border-color:var(--gold-deep);}
+
+#muro1,#muro2{display:flex;flex-direction:column;gap:14px;}
 
 .mensaje{
   padding:18px 20px;border-radius:16px;
@@ -56,11 +68,18 @@ body{
   position:relative;
 }
 .mensaje::before{content:'✦';position:absolute;top:10px;right:14px;color:var(--gold);opacity:.4;font-size:12px;}
-.linea{margin-bottom:5px;font-size:16px;}
+.linea{margin-bottom:6px;font-size:16px;}
 .linea:last-child{margin-bottom:0;}
 .label{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;font-weight:700;margin-right:6px;}
 .nombre{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;color:var(--dark,#3a2a1e);}
 .no-data{text-align:center;font-style:italic;color:var(--text3);padding:30px 0;}
+
+/* ETIQUETAS ceremonia / fiesta */
+.chip{display:inline-block;margin:2px 4px 2px 0;padding:3px 11px;border-radius:50px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;}
+.chip-cer{background:rgba(122,49,64,.1);border:1.5px solid var(--wine);color:var(--wine);}
+.chip-fie{background:rgba(95,111,84,.1);border:1.5px solid var(--sage-deep);color:var(--sage-deep);}
+.chip-no{background:rgba(0,0,0,.05);border:1.5px solid #999;color:#777;}
+.chip-na{background:rgba(169,120,36,.08);border:1.5px dashed var(--gold);color:var(--gold-deep);}
 
 /* CONTROLES */
 .controles{display:flex;justify-content:space-between;margin-top:20px;gap:10px;}
@@ -105,6 +124,11 @@ body{
 <!-- RSVP -->
 <div class="muro-wrapper active" id="wrap1">
   <p class="total-count" id="totalCount1"></p>
+  <div class="filtros">
+    <button class="filtro-btn active" data-f="todos" onclick="setFiltro('todos')">Todos</button>
+    <button class="filtro-btn" data-f="cer" onclick="setFiltro('cer')">💍 Ceremonia</button>
+    <button class="filtro-btn" data-f="fie" onclick="setFiltro('fie')">🥂 Fiesta</button>
+  </div>
   <div id="paginaInfo1" class="pagina-indicador"></div>
   <div id="muro1"></div>
   <div class="controles">
@@ -128,15 +152,48 @@ body{
 
 <script>
 /* URLs de tus 2 Apps Script (GET) */
-const URL_RSVP  = "https://script.google.com/macros/s/AKfycbz8oNGlZVJxashbQwIx3lg0FgFtijxqwI3Ovy7Rm5KDkqXOceZipwZaEYtupzRdwYMD6Q/exec";   // debe tener función doGet()
-const URL_SONG  = "https://script.google.com/macros/s/AKfycbyWJ2zQYOFbQkINxgi5sRWzNf_37CCTpCT-7P-8h0x6Sz-B-rtnXcZ2b7ziDS7CVzl3/exec"; // debe tener función doGet()
+/* IMPORTANTE: URL_RSVP tiene que ser la misma implementación del script donde el formulario guarda las confirmaciones (RSVP_URL en invitacion.html) */
+const URL_RSVP  = "https://script.google.com/macros/s/AKfycbz8oNGlZVJxashbQwIx3lg0FgFtijxqwI3Ovy7Rm5KDkqXOceZipwZaEYtupzRdwYMD6Q/exec";
+// const URL_RSVP = "https://script.google.com/macros/s/AKfycbyzvyT9WYKmcDwv7uXnojkE48eVI8MTNB-qcYgThClsNBDynnpITvKyrpNCsU-V0P806A/exec"; // ← la del formulario
+const URL_SONG  = "https://script.google.com/macros/s/AKfycbyWJ2zQYOFbQkINxgi5sRWzNf_37CCTpCT-7P-8h0x6Sz-B-rtnXcZ2b7ziDS7CVzl3/exec";
 
 const POR_PAGINA = window.innerWidth < 600 ? 5 : 10;
 
 const estado = {
-  1:{pagina:0,datos:[],url:URL_RSVP,tipoLabel:'Nombre',tipoLabel2:'Dato'},
+  1:{pagina:0,datos:[],url:URL_RSVP,tipoLabel:'Nombre',tipoLabel2:'Restricción',filtro:'todos'},
   2:{pagina:0,datos:[],url:URL_SONG,tipoLabel:'Canción',tipoLabel2:'Link'}
 };
+
+/* evita que un texto con código HTML se ejecute en el panel */
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* a qué evento va cada persona (según la columna "asiste" de la planilla) */
+function quienVa(m){
+  const a=String(m.asiste||'').toLowerCase();
+  if(!a || a.includes('sin especificar')) return {cer:null,fie:null};
+  return {cer:a.includes('ceremonia'), fie:a.includes('fiesta')};
+}
+function etiquetas(q){
+  if(q.cer===null) return '<span class="chip chip-na">¿Sin especificar?</span>';
+  let h='';
+  if(q.cer) h+='<span class="chip chip-cer">💍 Ceremonia</span>';
+  if(q.fie) h+='<span class="chip chip-fie">🥂 Fiesta</span>';
+  return h || '<span class="chip chip-no">✕ No asiste</span>';
+}
+function filtrar(datos,f){
+  if(f==='cer') return datos.filter(m=>quienVa(m).cer===true);
+  if(f==='fie') return datos.filter(m=>quienVa(m).fie===true);
+  return datos;
+}
+
+function setFiltro(f){
+  estado[1].filtro=f;
+  estado[1].pagina=0;
+  document.querySelectorAll('.filtro-btn').forEach(b=>b.classList.toggle('active',b.dataset.f===f));
+  render(1);
+}
 
 function showTab(n){
   document.getElementById('tabBtn1').classList.toggle('active', n===1);
@@ -166,36 +223,56 @@ function render(n){
   const total=document.getElementById('totalCount'+n);
   muro.innerHTML='';
 
-  total.innerHTML = n===1
-    ? `<strong>${st.datos.length}</strong> persona${st.datos.length===1?'':'s'} confirmada${st.datos.length===1?'':'s'}`
-    : `<strong>${st.datos.length}</strong> canción${st.datos.length===1?'':'es'} sugerida${st.datos.length===1?'':'s'}`;
+  const lista = n===1 ? filtrar(st.datos,st.filtro) : st.datos;
 
-  if(st.datos.length===0){
-    muro.innerHTML='<p class="no-data">Todavía no hay confirmaciones 🌹</p>';
+  if(n===1){
+    const cer=st.datos.filter(m=>quienVa(m).cer===true).length;
+    const fie=st.datos.filter(m=>quienVa(m).fie===true).length;
+    const sin=st.datos.filter(m=>quienVa(m).cer===null).length;
+    total.innerHTML =
+      `<strong>${st.datos.length}</strong> persona${st.datos.length===1?'':'s'} confirmada${st.datos.length===1?'':'s'}`+
+      `<br><span class="total-sub">💍 ${cer} a la ceremonia · 🥂 ${fie} a la fiesta${sin?` · ¿? ${sin} sin especificar`:''}</span>`;
+  }else{
+    total.innerHTML = `<strong>${st.datos.length}</strong> canción${st.datos.length===1?'':'es'} sugerida${st.datos.length===1?'':'s'}`;
+  }
+
+  if(lista.length===0){
+    muro.innerHTML = '<p class="no-data">'+
+      (st.datos.length===0
+        ? (n===1 ? 'Todavía no hay confirmaciones 🌹' : 'Todavía no hay canciones 🎵')
+        : 'Nadie en esta lista todavía')+'</p>';
     info.innerText='';
     document.getElementById('prevBtn'+n).style.display='none';
     document.getElementById('nextBtn'+n).style.display='none';
     return;
   }
 
-  const totalPaginas=Math.ceil(st.datos.length/POR_PAGINA);
+  const totalPaginas=Math.ceil(lista.length/POR_PAGINA);
   const inicio=st.pagina*POR_PAGINA;
   const fin=inicio+POR_PAGINA;
   info.innerText=`Página ${st.pagina+1} de ${totalPaginas}`;
 
-  st.datos.slice(inicio,fin).forEach((m,i)=>{
+  lista.slice(inicio,fin).forEach((m,i)=>{
     const div=document.createElement('div');
     div.className='mensaje';
     div.style.animationDelay=`${i*0.06}s`;
-    div.innerHTML=`
-      <div class="linea"><span class="label">${st.tipoLabel}</span><span class="nombre">${m.nombre || "Anónimo"}</span></div>
-      <div class="linea"><span class="label">${st.tipoLabel2}</span><span>${m.mensaje || "-"}</span></div>
-    `;
+    if(n===1){
+      div.innerHTML=`
+        <div class="linea"><span class="label">${st.tipoLabel}</span><span class="nombre">${esc(m.nombre || "Anónimo")}</span></div>
+        <div class="linea"><span class="label">Va a</span>${etiquetas(quienVa(m))}</div>
+        <div class="linea"><span class="label">${st.tipoLabel2}</span><span>${esc(m.mensaje || "-")}</span></div>
+      `;
+    }else{
+      div.innerHTML=`
+        <div class="linea"><span class="label">${st.tipoLabel}</span><span class="nombre">${esc(m.nombre || "Anónimo")}</span></div>
+        <div class="linea"><span class="label">${st.tipoLabel2}</span><span>${esc(m.mensaje || "-")}</span></div>
+      `;
+    }
     muro.appendChild(div);
   });
 
   document.getElementById('prevBtn'+n).style.display = st.pagina===0 ? 'none' : 'inline-block';
-  document.getElementById('nextBtn'+n).style.display = fin<st.datos.length ? 'inline-block' : 'none';
+  document.getElementById('nextBtn'+n).style.display = fin<lista.length ? 'inline-block' : 'none';
 }
 
 function next(n){ estado[n].pagina++; render(n); }
