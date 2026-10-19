@@ -670,8 +670,7 @@ const localMessages=[];
     if(!WALL_URL) return;
     const res=await fetch(WALL_URL); const data=await res.json();
     if(Array.isArray(data)){
-      data.forEach(row=>{ const ok=String(row.aprobado||'').trim().toLowerCase(); if(row.nombre&&row.mensaje&&(ok==='si'||ok==='sí'||ok==='true'||ok==='1')) localMessages.push({author:row.nombre,text:row.mensaje,time:new Date(row.timestamp||Date.now())}); });
-      renderMessages();
+      data.forEach(row=>{ if(row.nombre&&row.mensaje) localMessages.push({author:row.nombre,text:row.mensaje,time:new Date(row.timestamp||Date.now())}); });      renderMessages();
     }
   }catch(e){}
 })();
@@ -680,10 +679,10 @@ async function submitMessage(){
   const text=document.getElementById('msg-text').value.trim();
   if(!author||!text){alert('Por favor completá tu nombre y mensaje.');return;}
   await sendToSheet(WALL_URL,{nombre:author,mensaje:text,timestamp:new Date().toLocaleString('es-UY'),token:TOKEN},'msg-btn','msg-loading');
-  alert('¡Gracias! 💌 Tu mensaje se va a publicar cuando los novios lo aprueben.');
+  localMessages.push({author,text,time:new Date()});
   document.getElementById('msg-author').value=''; document.getElementById('msg-text').value='';
   document.getElementById('msg-btn').disabled=false;
-  renderMessages();
+  renderMessages(true);
 }
 const MSG_PAGE=5; let msgVisible=MSG_PAGE;
 function renderMessages(reset){
@@ -692,10 +691,11 @@ function renderMessages(reset){
   const sorted=[...localMessages].reverse();
   if(sorted.length>0) noMsg.style.display='none';
   grid.innerHTML='';
-  sorted.slice(0,msgVisible).forEach(m=>{
+    sorted.slice(0,msgVisible).forEach(m=>{
     const d=document.createElement('div'); d.className='msg-card';
-    d.innerHTML=`<p class="msg-author">${m.author}</p><p class="msg-text">"${m.text}"</p>`;
-    grid.appendChild(d);
+    const a=document.createElement('p'); a.className='msg-author'; a.textContent=m.author;
+    const t=document.createElement('p'); t.className='msg-text'; t.textContent='"'+m.text+'"';
+    d.append(a,t); grid.appendChild(d);
   });
   if(loadWrap) loadWrap.style.display=(sorted.length>msgVisible)?'block':'none';
 }
