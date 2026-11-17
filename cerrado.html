@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex"/>
+<title>Marcos &amp; Mariana · Invitación cerrada</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=IM+Fell+English:ital@0;1&family=Raleway:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--sage-deep:#5f6f54;--gold-strong:#a8823f;--wine:#7a3140;--cream:#fdf8f4;--text2:#6b5c47;}
+html,body{height:100%;}
+body{
+  background-color:#efe6d6;background-image:url('img/bg-boda.png');background-size:cover;background-position:center;
+  display:flex;align-items:center;justify-content:center;padding:20px;position:relative;
+}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 50% 30%,rgba(253,248,244,.35),rgba(253,248,244,.72) 75%);}
+.card{
+  position:relative;z-index:1;width:min(92vw,440px);text-align:center;
+  background:linear-gradient(175deg,var(--cream),#f7f1e4);border:1px solid rgba(201,169,110,.45);
+  border-radius:6px;padding:44px 26px 40px;box-shadow:0 14px 40px rgba(95,111,84,.2);
+}
+.card::before{content:'';position:absolute;inset:10px;border:1px solid rgba(168,130,63,.3);border-radius:3px;pointer-events:none;}
+.orn{font-size:26px;color:var(--gold-strong);opacity:.8;}
+.names{font-family:'Great Vibes',cursive;font-size:clamp(44px,12vw,60px);line-height:1.2;margin:8px 0 4px;
+  background:linear-gradient(120deg,var(--wine),var(--gold-strong) 50%,var(--sage-deep));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.names span{font-family:'Playfair Display',serif;font-style:italic;font-size:.5em;margin:0 4px;-webkit-text-fill-color:#c17b5e;}
+.divider{width:110px;height:2px;margin:14px auto 22px;border-radius:2px;background:linear-gradient(90deg,var(--wine),var(--gold-strong),var(--sage-deep));}
+.tag{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:14px;}
+.msg{font-family:'IM Fell English',serif;font-style:italic;font-size:clamp(16px,4.2vw,19px);line-height:1.7;color:var(--text2);}
+.sign{font-family:'IM Fell English',serif;font-style:italic;color:var(--wine);margin-top:22px;font-size:18px;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="orn">❧</div>
+  <div class="names">Marcos <span>&amp;</span> Mariana</div>
+  <div class="divider"></div>
+  <p class="tag">Invitación cerrada</p>
+  <p class="msg">Esta invitación ya no está disponible.<br/>Gracias por tanto cariño y por acompañarnos en este camino.</p>
+  <p class="sign">Con amor, Marcos &amp; Mariana ✦</p>
+</div>
+</body>
+</html>
